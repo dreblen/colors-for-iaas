@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  h1= title
+  ul(class="color-list")
+    if colors
+        each color in colors
+            li
+                -color.rgb = color.red+","+color.green+","+color.blue;
+                -color.opposite = (255-color.red)+","+(255-color.green)+","+(255-color.blue);
+                a(class="color-swatch" style="background: rgb("+color.rgb+"); color: rgb("+color.opposite+")" href="/colors/" + color.id) #{color.name}
+    li
+        a(class="color-swatch" href="/add-color") Add Color

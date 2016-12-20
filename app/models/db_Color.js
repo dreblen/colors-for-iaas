@@ -3,7 +3,7 @@ var config = JSON.parse(require('fs').readFileSync(__dirname + '/db.conf', {enco
 var Sequelize = require('sequelize');
 var sequelize = new Sequelize('colors-for-iaas', config.username, config.password);
 
-module.exports.Color = Color = sequelize.define('color', {
+module.exports = Color = sequelize.define('color', {
     name: Sequelize.STRING,
     red: Sequelize.INTEGER,
     green: Sequelize.INTEGER,

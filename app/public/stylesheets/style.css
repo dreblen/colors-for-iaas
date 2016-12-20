@@ -6,3 +6,16 @@ body {
 a {
   color: #00B7FF;
 }
+
+/* Color listing */
+ul.color-list {
+    list-style: none;
+}
+.color-swatch {
+    display: block;
+    width: 100px;
+    height: 60px;
+    
+    text-align: center;
+    padding-top: 40px;
+}

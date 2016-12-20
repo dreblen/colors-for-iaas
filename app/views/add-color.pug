@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  h1= title
+  form(action="/add-color" method="post")
+    label(for="red") Red:
+    input(type="text" name="red")
+    
+    label(for="green") Green:
+    input(type="text" name="green")
+    
+    label(for="blue") Blue:
+    input(type="text" name="blue")
+    
+    label(for="color-name") Name:
+    input(type="text" name="color-name")
+    
+    input(type="submit" value="Add Color")

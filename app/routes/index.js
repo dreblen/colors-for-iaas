@@ -17,7 +17,12 @@ router.get('/colors', function(req, res, next) {
 });
 
 router.get('/colors/:id', function(req, res, next) {
-    ;
+    Color.findById(req.params.id).then(function(color) {
+        res.render('single-color', {
+            title: 'Colors for IaaS - Single Color',
+            color: color
+        });
+    });
 });
 
 router.get('/add-color', function(req, res, next) {

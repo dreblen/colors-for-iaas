@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  p
+        a(href="/colors") Go back
+  
+  if color
+    h2 #{color.name}
+    -color.rgb = color.red+","+color.green+","+color.blue;
+    div(class="large color-swatch" style="background: rgb("+color.rgb+");")
+  else
+    h2 Color Not Found!

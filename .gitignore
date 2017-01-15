@@ -1,5 +1,3 @@
-app/models/db.conf
-
 # Logs
 logs
 *.log

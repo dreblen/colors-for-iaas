@@ -1,4 +1,4 @@
-version: "2"
+version: "2.1"
 
 services:
     web:
@@ -11,7 +11,8 @@ services:
         ports:
             - "3000:3000"
         depends_on:
-            - mariadb_cfi
+            mariadb_cfi:
+                condition: service_healthy
 
     mariadb_cfi:
         container_name: mariadb_cfi
@@ -19,3 +20,8 @@ services:
         environment:
             - MYSQL_ROOT_PASSWORD=toor
             - MYSQL_DATABASE=colors-for-iaas
+        healthcheck:
+            test: ["CMD", "mysqladmin", "-uroot", "-ptoor", "status"]
+            interval: 10s
+            timeout: 2s
+            retries: 3

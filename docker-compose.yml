@@ -1,0 +1,21 @@
+version: "2"
+
+services:
+    web:
+        container_name: cfi
+        build: app/
+        environment:
+            - DB_USER=root
+            - DB_PASSWORD=toor
+            - DB_HOST=mariadb_cfi
+        ports:
+            - "3000:3000"
+        depends_on:
+            - mariadb_cfi
+
+    mariadb_cfi:
+        container_name: mariadb_cfi
+        image: mariadb
+        environment:
+            - MYSQL_ROOT_PASSWORD=toor
+            - MYSQL_DATABASE=colors-for-iaas
